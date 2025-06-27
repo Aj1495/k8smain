@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: "skswami91/kubernetes-2025"
+  repository: "bobthe1495/ajaytechx"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "30"
+  tag: "main"
 
 imagePullSecrets: []
 nameOverride: ""
