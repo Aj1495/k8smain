@@ -114,4 +114,4 @@ affinity: {}
 
 env:
   - name: MONGODB_URI
-    value: "mongodb://my-mongo-mongodb.default.svc.cluster.local:27017/alfatechx"
+    value: "mongodb://mongo.default.svc.cluster.local:27017/alfatechx"
