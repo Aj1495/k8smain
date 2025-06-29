@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "kubernetes-2025.labels" . | nindent 4 }}
 spec:
-        #  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  #  {{- end }}
   selector:
     matchLabels:
       {{- include "kubernetes-2025.selectorLabels" . | nindent 6 }}
@@ -19,7 +17,7 @@ spec:
       {{- end }}
       labels:
         {{- include "kubernetes-2025.labels" . | nindent 8 }}
-	{{- with .Values.podLabels }}
+        {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
@@ -40,14 +38,20 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /
+              path: /api/health
               port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
