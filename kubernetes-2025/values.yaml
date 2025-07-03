@@ -8,7 +8,7 @@ image:
   repository: "bobthe1495/kubernetes-2025"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "fix2"
+  tag: "fix3"
 
 imagePullSecrets: []
 nameOverride: ""
