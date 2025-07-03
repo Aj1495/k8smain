@@ -52,7 +52,7 @@ ingress:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "false"
   hosts:
-    - host: ""
+    - host: alphatech.local
       paths:
         - path: /app
           pathType: Prefix
@@ -114,4 +114,4 @@ affinity: {}
 
 env:
   - name: MONGODB_URI
-    value: "mongodb://mongo-mongodb.default.svc.cluster.local:27017/alfatechx"
+    value: "mongodb://mongo.default.svc.cluster.local:27017/alfatechx"
